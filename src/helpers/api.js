@@ -1,16 +1,17 @@
 import axios from 'axios';
 
 export const instance = axios.create({
-  BASE_URL: 'https://65a6e04274cf4207b4f0fbbe.mockapi.io/api/v1/adverts',
+  baseURL: 'https://65a6e04274cf4207b4f0fbbe.mockapi.io/adverts',
 });
 
-const MAX_PER_PAGE = 12;
+const LIMIT_PER_PAGE = 12;
 
 export const fetchCars = async (page = 1) => {
   instance.defaults.params = {
     page,
-    limit: MAX_PER_PAGE,
+    limit: LIMIT_PER_PAGE,
   };
+
   const { data } = await instance.get();
   instance.defaults.params = {};
   return data;

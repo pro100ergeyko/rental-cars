@@ -1,7 +1,9 @@
+import { CarsList } from '../components/CarsList/CarsList';
+
 const Catalog = () => {
   return (
     <>
-      <h1>Catalog</h1>
+      <CarsList />
     </>
   );
 };
