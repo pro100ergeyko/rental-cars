@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkpro100ergeyko=self.webpackChunkpro100ergeyko||[]).push([[415],{5415:function(e,r,n){n.r(r);var u=n(184);r.default=function(){return(0,u.jsx)(u.Fragment,{children:(0,u.jsx)("h1",{children:"Home"})})}}}]);
+//# sourceMappingURL=415.b568f0bb.chunk.js.map
