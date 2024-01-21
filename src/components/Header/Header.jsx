@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom';
 import {
   HeaderContainer,
   Wraper,
+  MyLink,
   LogoContainer,
-  LogoImg,
   NavContainer,
   StyledLink,
 } from './Header.styled';
@@ -13,9 +12,7 @@ export const Header = () => {
     <HeaderContainer>
       <Wraper>
         <LogoContainer>
-          <Link to="/">
-            <LogoImg src="../../img/logo.png" alt="rental-cars" />
-          </Link>
+          <MyLink to="/">Rental-cars</MyLink>
         </LogoContainer>
         <NavContainer>
           <StyledLink to="/">Home</StyledLink>

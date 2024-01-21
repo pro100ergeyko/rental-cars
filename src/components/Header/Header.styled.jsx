@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
   position: static;
@@ -28,8 +29,6 @@ export const Wraper = styled.div`
 
 export const LogoContainer = styled.div``;
 
-export const LogoImg = styled.img``;
-
 export const NavContainer = styled.div`
   display: flex;
   gap: 8px;
@@ -40,6 +39,22 @@ export const NavContainer = styled.div`
 
   @media (min-width: 1440px) {
     gap: 14px;
+  }
+`;
+
+export const MyLink = styled(Link)`
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 22px;
   }
 `;
 
