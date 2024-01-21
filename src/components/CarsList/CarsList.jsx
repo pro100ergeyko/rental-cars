@@ -5,9 +5,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectCars, selectFavorites } from '../../redux/selectors';
 import { getAllCars, getCars } from '../../redux/cars/carsOperations';
 import { changeFilter } from '../../helpers/chengeFilter';
-// import { CatalogContainer } from './CarsList.styled';
 import { Filter } from '../Filter/Filter';
 import { CarItem } from '../CarItem/CarItem';
+import {
+  ButtonContainer,
+  ButtonLoadMore,
+  CarList,
+  CatalogContainer,
+  DontFound,
+  DontHave,
+} from './CarsList.styled';
 
 export const CarsList = () => {
   const [page, setPage] = useState(1);
@@ -33,29 +40,33 @@ export const CarsList = () => {
   };
 
   return (
-    <>
+    <CatalogContainer>
       {favoritePage ? null : (
         <Filter onSubmit={handleSubmit} setFilter={setFilter} />
       )}
       {renderCar.length === 0 ? (
         favoritePage ? (
-          <p>You haven't any cars in your favorites list yet.</p>
+          <DontHave>You haven't any cars in your favorites list yet. </DontHave>
         ) : (
-          <p> Sorry, we did'nt found anything with this parameters</p>
+          <DontFound>
+            Sorry, we did'nt found anything with this parameters
+          </DontFound>
         )
       ) : null}
-      <ul>
+      <CarList>
         {renderCar?.map(car => (
           <CarItem key={car.id} carInfo={car} />
         ))}
-      </ul>
+      </CarList>
       {favoritePage ||
       renderCar.length === 0 ||
       renderCar.length % 12 !== 0 ? null : (
-        <button type="button" onClick={handleLoadMore}>
-          Load More
-        </button>
+        <ButtonContainer>
+          <ButtonLoadMore type="button" onClick={handleLoadMore}>
+            Load More
+          </ButtonLoadMore>
+        </ButtonContainer>
       )}
-    </>
+    </CatalogContainer>
   );
 };

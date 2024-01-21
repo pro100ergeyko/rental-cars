@@ -1,4 +1,5 @@
 import { baseFilter } from '../../helpers/baseFilter';
+import Select from 'react-select';
 import {
   FilterContainer,
   CustomSelectBrand,
@@ -15,7 +16,6 @@ import {
 } from './Filter.styled';
 import { makes } from '../../helpers/data/makes.js';
 import { dropDownPrice } from '../../helpers/dropDownPrice';
-import { customMakeSelect, customPriceSelect } from './CustomSelectStyles';
 
 export const Filter = ({ onSubmit, setFilter }) => {
   const handleSubmit = e => {
@@ -37,23 +37,23 @@ export const Filter = ({ onSubmit, setFilter }) => {
         <SelectContainer>
           <Label>
             {'Car brand '}
-            <CustomSelectBrand
+            <Select
               name="make"
               placeholder="Enter the text"
               options={makes}
-              styles={customMakeSelect}
+              styles={CustomSelectBrand}
             />
           </Label>
           <Label>
             {'Price/ 1 hour'}
-            <CustomSelectPrice
+            <Select
               name="rentalPrice"
               placeholder="To $"
+              styles={CustomSelectPrice}
               options={dropDownPrice().map(price => ({
                 value: price,
                 label: `$${price}`,
               }))}
-              styles={customPriceSelect}
             />
           </Label>
         </SelectContainer>
